@@ -218,6 +218,7 @@
 #include <list>
 #include <algorithm>
 #include <stdio.h>
+#include <functional>
 
 #ifdef SI_SUPPORT_IOSTREAMS
 # include <iostream>
