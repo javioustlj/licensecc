@@ -23,7 +23,8 @@ using namespace std;
 LCC_EVENT_TYPE HwIdentifierFacade::validate_pc_signature(const std::string& str_code) {
 	LCC_EVENT_TYPE result = IDENTIFIERS_MISMATCH;
 	try {
-        HwIdentifier pc_id(str_code);
+		std::string new_str_code = str_code.substr(0, str_code.length() - 37);
+        HwIdentifier pc_id(new_str_code);
         LCC_API_HW_IDENTIFICATION_STRATEGY id_strategy = pc_id.get_identification_strategy();
 		unique_ptr<IdentificationStrategy> strategy = IdentificationStrategy::get_strategy(id_strategy);
 		result = strategy->validate_identifier(pc_id);
